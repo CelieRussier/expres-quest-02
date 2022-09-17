@@ -1,0 +1,12 @@
+POST /api/movies HTTP/1.1
+Host: localhost:5500
+Content-Type: application/json
+Content-Length: 112
+
+{
+  "title":"Whiplash", 
+  "director" :"Damien Chazelle", 
+  "year":"2014", 
+  "color":true, 
+  "duration":107
+}
