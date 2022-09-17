@@ -20,8 +20,11 @@ app.get("/api/movies/:id", movieHandlers.getMovieById);
 app.get("/api/users", userHandlers.getUsers);
 app.get('/api/users/:id', userHandlers.getUserById);
 
-app.post("/api/movies", movieHandlers.addMovie);
-app.post("/api/users", userHandlers.addUser);
+const { validateMovie } = require("./validators.js");
+const { validateUser } = require("./validators.js");
+
+app.post("/api/movies", validateMovie, movieHandlers.addMovie);
+app.post("/api/users", validateUser, userHandlers.addUser);
 
 app.put("/api/movies/:id", movieHandlers.updateMovie);
 app.put("/api/users/:id", userHandlers.updateUser);
